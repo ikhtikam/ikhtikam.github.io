@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleek Showcase</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0a0b10',
+                        cyanGlow: '#00f0ff',
+                        pinkGlow: '#ff0055',
+                        purpleGlow: '#7000ff'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Smooth Custom Styling */
+        body {
+            background-color: #0a0b10;
+            color: #e2e8f0;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism card */
+        .glass {
+            background: rgba(18, 20, 29, 0.55);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass:hover {
+            border-color: rgba(0, 240, 255, 0.3);
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.15);
+            transform: translateY(-4px);
+        }
+
+        /* Glowing Cursor Blur Trail */
+        #glow-trail {
+            pointer-events: none;
+            position: fixed;
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.12) 0%, rgba(112, 0, 255, 0.06) 40%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            transition: transform 0.08s ease-out;
+        }
+
+        /* Ambient Static Background Blobs */
+        .blob-1 {
+            position: absolute;
+            top: 15%;
+            left: 20%;
+            width: 300px;
+            height: 300px;
+            background: rgba(0, 240, 255, 0.15);
+            filter: blur(120px);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .blob-2 {
+            position: absolute;
+            bottom: 20%;
+            right: 20%;
+            width: 350px;
+            height: 350px;
+            background: rgba(255, 0, 85, 0.12);
+            filter: blur(140px);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="relative min-h-screen flex flex-col justify-between selection:bg-cyanGlow selection:text-black">
+
+    <!-- Ambient Glowing Cursor & Background Lights -->
+    <div id="glow-trail"></div>
+    <div class="blob-1"></div>
+    <div class="blob-2"></div>
+
+    <!-- Minimal Header -->
+    <header class="relative z-10 max-w-5xl mx-auto w-full px-6 py-8 flex justify-between items-center">
+        <a href="#" class="font-mono font-bold text-lg tracking-wider text-white flex items-center gap-2 group">
+            <span class="w-2.5 h-2.5 rounded-full bg-cyanGlow shadow-[0_0_10px_#00f0ff] group-hover:scale-125 transition-transform"></span>
+            DEV//CORE
+        </a>
+        <div class="flex items-center gap-6 font-mono text-xs text-gray-400">
+            <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span> AVAILABLE FOR WORK</span>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="relative z-10 max-w-5xl mx-auto w-full px-6 py-6 my-auto">
+        
+        <!-- Hero Card -->
+        <div class="glass p-8 md:p-12 rounded-3xl mb-8 relative overflow-hidden">
+            <div class="max-w-2xl">
+                <!-- Floating Tech Badges -->
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-cyanGlow font-mono text-xs tracking-wide">Full-Stack Architect</span>
+                    <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-pinkGlow font-mono text-xs tracking-wide">UI/UX Specialist</span>
+                    <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-purpleGlow font-mono text-xs tracking-wide">WebGL Graphics</span>
+                </div>
+
+                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white mb-4 leading-tight">
+                    Building sleek & high-impact digital experiences.
+                </h1>
+
+                <p class="text-gray-400 text-sm sm:text-base leading-relaxed mb-8">
+                    Crafting ultra-fast web applications, interactive interfaces, and clean scalable code. Minimalist aesthetic with maximum performance.
+                </p>
+
+                <!-- Action CTA -->
+                <div class="flex flex-wrap items-center gap-4 font-mono text-xs">
+                    <a href="#projects" class="px-6 py-3 rounded-xl bg-cyanGlow text-black font-bold tracking-wider hover:shadow-[0_0_20px_rgba(0,240,255,0.5)] transition-all hover:scale-105">
+                        VIEW PROJECTS <i class="fa-solid fa-arrow-down ml-1"></i>
+                    </a>
+                    <button id="copy-email-btn" class="px-6 py-3 rounded-xl glass text-white font-bold tracking-wider border border-white/10 hover:border-cyanGlow/50 transition-all flex items-center gap-2">
+                        <i class="fa-regular fa-copy"></i> <span id="copy-btn-text">COPY EMAIL</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sleek Projects Grid -->
+        <div id="projects" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Card 1 -->
+            <div class="glass p-6 rounded-2xl flex flex-col justify-between group">
+                <div>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="font-mono text-[11px] text-cyanGlow">01 // WEBAPP</span>
+                        <a href="#" class="text-gray-500 hover:text-white transition-colors"><i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 group-hover:text-cyanGlow transition-colors">Aether OS</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed mb-6">Minimalist browser-based workstation UI built with React and Tailwind.</p>
+                </div>
+                <div class="flex gap-2 font-mono text-[10px] text-gray-500">
+                    <span>#React</span>
+                    <span>#Tailwind</span>
+                    <span>#Vite</span>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="glass p-6 rounded-2xl flex flex-col justify-between group">
+                <div>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="font-mono text-[11px] text-pinkGlow">02 // GRAPHICS</span>
+                        <a href="#" class="text-gray-500 hover:text-white transition-colors"><i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 group-hover:text-pinkGlow transition-colors">Vortex Shaders</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed mb-6">Interactive WebGL background particle engine with audio frequency sync.</p>
+                </div>
+                <div class="flex gap-2 font-mono text-[10px] text-gray-500">
+                    <span>#Three.js</span>
+                    <span>#GLSL</span>
+                    <span>#Canvas</span>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="glass p-6 rounded-2xl flex flex-col justify-between group">
+                <div>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="font-mono text-[11px] text-purpleGlow">03 // TOOLKIT</span>
+                        <a href="#" class="text-gray-500 hover:text-white transition-colors"><i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 group-hover:text-purpleGlow transition-colors">Nexus CLI</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed mb-6">Ultra-fast developer environment setup command-line utility in Rust.</p>
+                </div>
+                <div class="flex gap-2 font-mono text-[10px] text-gray-500">
+                    <span>#Rust</span>
+                    <span>#CLI</span>
+                    <span>#Node</span>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Clean Footer -->
+    <footer class="relative z-10 max-w-5xl mx-auto w-full px-6 py-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-mono text-gray-500 border-t border-white/5">
+        <div>&copy; 2026 ALEX DEV. ALL RIGHTS RESERVED.</div>
+        <div class="flex items-center gap-6">
+            <a href="#" class="hover:text-cyanGlow transition-colors"><i class="fa-brands fa-github text-sm"></i></a>
+            <a href="#" class="hover:text-cyanGlow transition-colors"><i class="fa-brands fa-x-twitter text-sm"></i></a>
+            <a href="#" class="hover:text-cyanGlow transition-colors"><i class="fa-brands fa-linkedin text-sm"></i></a>
+        </div>
+    </footer>
+
+    <!-- Minimal Script -->
+    <script>
+        // Smooth Cursor Following Glowing Backdrop
+        const glowTrail = document.getElementById('glow-trail');
+        window.addEventListener('mousemove', (e) => {
+            glowTrail.style.left = `${e.clientX}px`;
+            glowTrail.style.top = `${e.clientY}px`;
+        });
+
+        // Copy Email Interactivity
+        const copyBtn = document.getElementById('copy-email-btn');
+        const copyBtnText = document.getElementById('copy-btn-text');
+        const email = 'alex@devcore.io';
+
+        copyBtn.addEventListener('click', () => {
+            // Fallback clipboard method for iframe safety
+            const tempInput = document.createElement('input');
+            tempInput.value = email;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            copyBtnText.innerText = 'COPIED TO CLIPBOARD!';
+            copyBtn.classList.add('border-cyanGlow', 'text-cyanGlow');
+
+            setTimeout(() => {
+                copyBtnText.innerText = 'COPY EMAIL';
+                copyBtn.classList.remove('border-cyanGlow', 'text-cyanGlow');
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
